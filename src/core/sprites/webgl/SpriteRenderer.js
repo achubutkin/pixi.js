@@ -118,13 +118,13 @@ export default class SpriteRenderer extends ObjectRenderer
 
         this.shader = generateMultiTextureShader(gl, this.MAX_TEXTURES);
 
+        this.renderer.bindVao(null);
+
         // create a couple of buffers
         this.indexBuffer = glCore.GLBuffer.createIndexBuffer(gl, this.indices, gl.STATIC_DRAW);
 
         // we use the second shader as the first one depending on your browser may omit aTextureId
         // as it is not used by the shader so is optimized out.
-
-        this.renderer.bindVao(null);
 
         const attrs = this.shader.attributes;
 
